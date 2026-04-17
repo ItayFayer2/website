@@ -1,0 +1,35 @@
+@page
+@model ContactModel
+@{
+    ViewData["Title"] = "Burger Salon";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דברו איתנו</title>
+    <link rel="stylesheet" href="~/css/Contact.css">
+</head>
+<body class="HomePage">
+
+<section class="contact-section">
+    <h1>דברו איתנו</h1>
+    <p>יש לך שאלות? שלח לנו הודעה ונענה לך!</p>
+
+    <form class="contact-form" action="#" method="post">
+        <label for="name">שם מלא</label>
+        <input type="text" id="name" name="name" placeholder="שמך" required>
+
+        <label for="email">אימייל</label>
+        <input type="email" id="email" name="email" placeholder="האימייל שלך" required>
+
+        <label for="message">הודעה</label>
+        <textarea id="message" name="message" rows="6" placeholder="ההודעה שלך" required></textarea>
+
+        <button type="submit" class="AAA">שלח לנו</button>
+    </form>
+</section>
+
+</body>
+</html>

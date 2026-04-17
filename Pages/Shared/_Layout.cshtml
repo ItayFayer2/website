@@ -1,0 +1,35 @@
+﻿<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Salon</title>
+    <link rel="stylesheet" href="~/css/Home.css" />
+</head>
+<body class="HomePage">
+
+<header>
+    <img src="~/images/icon.png" alt="Burger Salon Logo">
+
+    <nav>
+        <ul class="nav-links">
+            <li><a asp-page="/Index">בית</a></li>
+            <li><a asp-page="/About">אודות</a></li>
+            <li><a asp-page="/Menu">תפריט</a></li>
+            <li><a asp-page="/Contact">דברו איתנו</a></li>
+            <li><a asp-page="/Book">הזמן שולחן</a></li>
+        </ul>
+    </nav>
+
+<div class="auth-buttons">
+    <a asp-page="/Login" class="auth-btn login-btn">התחברות</a>
+    <a asp-page="/Signup" class="auth-btn signup-btn">הרשמה</a>
+</div>
+</header>
+
+<div>
+    @RenderBody()
+</div>
+
+</body>
+</html>

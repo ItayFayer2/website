@@ -1,0 +1,26 @@
+@page
+@model finalProject.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<link rel="stylesheet" href="~/css/Login.css" />
+
+<div class="login-page">
+    <div class="login-container">
+        <h1>התחברות</h1>
+
+        @if (!string.IsNullOrEmpty(Model.message))
+        {
+            <p>@Model.message</p>
+        }
+
+        <form method="post" class="login-form">
+            <input type="text" name="username" placeholder="שם משתמש" required />
+            <input type="password" name="password" placeholder="סיסמא" required />
+            <button type="submit">התחבר</button>
+        </form>
+
+    
+    </div>
+</div>

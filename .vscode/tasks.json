@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Dotnet",
+      "type": "shell",
+      "command": "dotnet run",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}

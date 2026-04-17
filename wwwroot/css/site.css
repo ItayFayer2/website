@@ -1,0 +1,175 @@
+body {
+    padding: 0;
+    margin: 0;
+font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;    
+background-color: white;
+}
+
+header {
+    background-color: hsl(0, 0%, 100%);
+    border-bottom: 3px solid rgb(184, 0, 0);
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header img {
+    height: 70px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px; 
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: black;
+    transition: 0.2s ease;
+}
+
+.nav-links li a:hover {
+    color: rgb(184, 0, 0);
+}
+
+
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+
+
+.auth-buttons .login-btn {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: transparent;
+    border: 2px solid rgb(184, 0, 0);
+    color: rgb(184, 0, 0);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.auth-buttons .login-btn:hover {
+    background-color: rgb(184, 0, 0);
+    color: white;
+}
+
+
+.auth-buttons .signup-btn {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: rgb(184, 0, 0);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.auth-buttons .signup-btn:hover {
+    background-color: darkred;
+}
+
+
+
+.background {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.background video {
+    width: 100%;
+    height: 130%;
+    object-fit: cover;
+    filter: brightness(50%) contrast(120%);
+    display: block;
+}
+
+.background h1,
+.background h3 {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    margin: 0;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;    
+}
+
+.background h1 {
+    font-size: 3rem;
+    margin-bottom: 5px;
+}
+
+.background h3 {
+    padding-top: 120px;
+    gap: 15px;
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+
+.background .AAA { position: absolute;
+   top: 50%;
+    left: 50%;
+     transform: translateX(-50%); 
+     padding: 15px 30px;
+      font-size: 22px;
+       color: white; 
+       background-color: transparent; 
+       border: none; cursor: pointer; 
+       text-transform: uppercase; 
+       font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        transition: all 0.2s ease; } 
+
+
+
+.background .AAA:hover{ color: rgb(184, 0, 0);
+   transition: all 0.2s ease; 
+  }
+
+.Informetion {
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    padding: 80px 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.Informetion .Upper {
+    display: flex;
+    align-items: center;
+    gap: 60px; 
+}
+
+
+.Informetion .Upper .aa {
+    width: 40%;
+    max-width: 450px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.Informetion .Upper h1 {
+    flex: 1;
+    color: #222;
+    font-size: 20px;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+
+
