@@ -1,0 +1,27 @@
+@page
+@model BookModel
+
+<link rel="stylesheet" href="~/css/Site.css" />
+
+<div class="book-page">
+
+    <h1>הזמנת שולחן</h1>
+
+    <form method="post" class="book-form">
+
+        <label>שם</label>
+        <input type="text" name="Name" required />
+
+<input type="date" name="Date" required />
+<input type="time" name="Time" required />
+
+        <label>מספר אנשים</label>
+        <input type="number" name="People" min="1" required />
+
+        <button type="submit">הזמן שולחן</button>
+
+    </form>
+
+    <p>@Model.Message</p>
+
+</div>

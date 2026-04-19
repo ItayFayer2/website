@@ -1,175 +1,684 @@
 body {
     padding: 0;
     margin: 0;
-font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;    
-background-color: white;
+    font-family: 'Segoe UI', Impact, sans-serif;
+    background-color: #ffffff;
+    color: #ffffff;
+    direction: rtl;
 }
 
-header {
-    background-color: hsl(0, 0%, 100%);
-    border-bottom: 3px solid rgb(184, 0, 0);
-    padding: 10px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-header img {
-    height: 70px;
-    width: auto;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 30px; 
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: black;
-    transition: 0.2s ease;
-}
-
-.nav-links li a:hover {
-    color: rgb(184, 0, 0);
-}
-
-
-.auth-buttons {
-    display: flex;
-    gap: 15px;
-}
-
-
-
-.auth-buttons .login-btn {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    background-color: transparent;
-    border: 2px solid rgb(184, 0, 0);
-    color: rgb(184, 0, 0);
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: 0.2s;
-}
-
-.auth-buttons .login-btn:hover {
-    background-color: rgb(184, 0, 0);
-    color: white;
-}
-
-
-.auth-buttons .signup-btn {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    background-color: rgb(184, 0, 0);
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: 0.2s;
-}
-
-.auth-buttons .signup-btn:hover {
-    background-color: darkred;
-}
-
-
-
-.background {
+.Hero {
     width: 100%;
-    height: 500px;
+    height: 60vh; 
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
 }
 
-.background video {
-    width: 100%;
-    height: 130%;
-    object-fit: cover;
-    filter: brightness(50%) contrast(120%);
-    display: block;
-}
-
-.background h1,
-.background h3 {
+.Hero video {
     position: absolute;
-    left: 50%;
-    top: 30%;
-    transform: translate(-50%, -50%);
-    color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    filter: brightness(40%);
+    z-index: -1;
+}
+
+.Hero-Overlay {
     text-align: center;
+}
+
+.Hero-Overlay h1 {
+    font-size: 70px;
     margin: 0;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;    
+    color: #ff0000;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
 }
 
-.background h1 {
-    font-size: 3rem;
-    margin-bottom: 5px;
+.Hero-Overlay h3 {
+    color: white;
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: 10px;
 }
 
-.background h3 {
-    padding-top: 120px;
-    gap: 15px;
-    font-size: 1.5rem;
-    font-weight: normal;
+.Main-Btn {
+    margin-top: 25px;
+    transition: all 0.3s ease;
+    padding: 12px 35px;
+    font-size: 18px;
+    border-radius: 5px;
+    background: transparent;
+    color: white;
+    border: 2px solid #ff0000;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.Main-Btn:hover {
+    background: #ff0000;
+    transition: all 0.3s ease;
+    color: black;
+}
+
+.Main-Btn:hover {
+    background: #ff0000;
+    box-shadow: 0 0 30px #ff0000;
 }
 
 
-.background .AAA { position: absolute;
-   top: 50%;
-    left: 50%;
-     transform: translateX(-50%); 
-     padding: 15px 30px;
-      font-size: 22px;
-       color: white; 
-       background-color: transparent; 
-       border: none; cursor: pointer; 
-       text-transform: uppercase; 
-       font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        transition: all 0.2s ease; } 
+.Content-Section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 80px 20px;
+        gap: 30px;
 
+}
 
-
-.background .AAA:hover{ color: rgb(184, 0, 0);
-   transition: all 0.2s ease; 
-  }
-
-.Informetion {
-    position: relative;
-    border-bottom: 1px solid #ddd;
-    padding: 80px 10%;
+.Info-Row {
+    width: 1200px;
+    background: rgb(247, 247, 247);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+    transition: 0.3s ease;
 }
 
-.Informetion .Upper {
-    display: flex;
-    align-items: center;
-    gap: 60px; 
+.Info-Row:hover {
+    transform: scale(1.01);
 }
 
-
-.Informetion .Upper .aa {
-    width: 40%;
-    max-width: 450px;
-    border-radius: 10px;
+.Feature-Img {
+    width: 100%;
+    height: 320px;
     object-fit: cover;
+    filter: brightness(0.85) contrast(1.1);
+    transition: 0.4s ease;
 }
 
-.Informetion .Upper h1 {
-    flex: 1;
+
+.Text-Content {
+    padding: 30px;
+    text-align: right;
+}
+
+.Text-Content h2 {
+    font-size: 32px;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+    color: #ff0000;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.Text-Content h2::after {
+    content: "";
+    width: 60px;
+    height: 3px;
+    background: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    border-radius: 10px;
+}
+
+.Text-Content p {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 17px;
+    color: #070707;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.Main-Btn {
+    background: linear-gradient(135deg, #ff2e2e, #a73939);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+/* ---------------------ABOUT PAGE--------------------- */
+
+.About-Hero {
+    width: 100%;
+    height: 40vh;
+    background: linear-gradient(135deg, #111, #1a1a1a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.About-Overlay h1 {
+    font-size: 48px;
+    color: #ff0000;
+    margin: 0;
+    text-shadow: 0 0 15px rgba(255,0,0,0.5);
+}
+
+.About-Overlay p {
+    color: #ccc;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.About-Section {
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    background: #f5f5f5;
+}
+
+.About-Card {
+    width: 2300px;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.About-Card:hover {
+    transform: translateY(-5px);
+}
+
+.About-Card h2 {
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+.About-Card p {
     color: #222;
-    font-size: 20px;
-    line-height: 1.7;
-    font-weight: 500;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+
+/* ---------------------MENU PAGE--------------------- */
+
+.Menu {
+    width: 100%;
+    padding: 50px 20px;
+    background: #f5f5f5;
+}
+
+.Deals {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.Deals h1 {
+    font-size: 36px;
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+.line {
+    width: 100px;
+    height: 3px;
+    background: #ff0000;
+    margin: 0 auto 30px auto;
+    border-radius: 10px;
+}
+
+.Items-Grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.Item {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Item:hover {
+    transform: translateY(-6px);
+}
+
+.Item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.Item h2 {
+    margin: 10px 0 5px 0;
+    font-size: 18px;
+    color: #222;
+}
+
+.Item p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+
+.Item button {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Item button:hover {
+    background: #cc0000;
+    transform: scale(1.05);
+}
+
+/* ---------------------CONTACT PAGE--------------------- */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.Contact-Section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Contact-Box {
+    width: 500px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    text-align: center;
+}
+
+.Contact-Box h1 {
+    margin-bottom: 10px;
+    color: #ff0000;
+}
+
+.Contact-Box p {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+
+.Contact-Form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.Contact-Form input,
+.Contact-Form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.Contact-Form input:focus,
+.Contact-Form textarea:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 10px rgba(255,0,0,0.2);
+}
+
+/* BUTTON */
+.Contact-Form button {
+    background: linear-gradient(135deg, #ff2e2e, #a73939);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Contact-Form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,0,0,0.5);
+}
+
+/* ---------------------LOGIN PAGE--------------------- */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.login-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    width: 380px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    text-align: center;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.login-container h1 {
+    margin-bottom: 20px;
+    color: #ff0000;
+    font-size: 32px;
+}
+
+.login-container p {
+    color: #ff0000;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-form input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.login-form input:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 10px rgba(255,0,0,0.2);
+}
+
+
+.login-form button {
+    background: linear-gradient(135deg, #ff2e2e, #a73939);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,0,0,0.5);
+}
+
+/* ---------------------SIGNUP PAGE--------------------- */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+
+.signup-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-container {
+    width: 450px;
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    text-align: center;
+}
+
+
+.signup-container h1 {
+    color: #ff0000;
+    margin-bottom: 20px;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+label {
+    text-align: right;
+    font-weight: bold;
+    font-size: 14px;
+    color: #070707;
+}
+
+
+input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 10px rgba(255,0,0,0.2);
+}
+
+
+button {
+    margin-top: 15px;
+    background: linear-gradient(135deg, #ff2e2e, #a73939);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,0,0,0.5);
+}
+
+.message {
+    margin-top: 15px;
+    color: #ff0000;
+    font-weight: bold;
+}
+
+/* ---------------------ADMIN PAGE--------------------- */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.admin-page {
+    padding: 40px;
+    text-align: center;
+}
+
+.admin-page h1 {
+    color: #ff0000;
+    margin-bottom: 30px;
+}
+
+
+.admin-table {
+    width: 90%;
+    margin: auto;
+    color: #070707;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.admin-table th {
+    background: #ff0000;
+    color: white;
+    padding: 12px;
+}
+
+.admin-table td {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    
 }
 
 
 
+.search-box {
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    padding: 12px;
+    border-radius: 5px;
+    background-color: #ff000033;
+    border: none;
+    align-self: center;
+    color: white;
+    font-size: larger;
+    width: 90%;
+}
+
+
+.delete-btn {
+    background: #ff0000;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: darkred;
+}
+
+.welcome-text{
+    font-family: 'Segoe UI', sans-serif;
+    align-self: center;
+    font-weight: bold;
+}
+
+/* ---------------------BOOK TABLE--------------------- */
+
+
+.book-page {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    text-align: center;
+}
+
+.book-page h1 {
+    color: #ff0000;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.book-form label {
+    text-align: right;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+
+.book-form input {
+    padding: 12px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.book-form input:focus {
+    outline: none;
+    border-color: #ff0000;
+    box-shadow: 0 0 5px rgba(255,0,0,0.3);
+}
+
+.book-form input[type="date"],
+.book-form input[type="time"] {
+    width: 100%;
+}
+
+
+.book-form button {
+    margin-top: 15px;
+    padding: 12px;
+    background: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.book-form button:hover {
+    background: #cc0000;
+    transform: scale(1.02);
+}
+
+
+.book-page p {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #444;
+}

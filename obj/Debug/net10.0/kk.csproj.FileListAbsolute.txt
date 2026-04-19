@@ -94,9 +94,6 @@ C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\staticwebassets.build.
 C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\swae.build.ex.cache
 C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\kk.genruntimeconfig.cache
 C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\ref\kk.dll
-C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\compressed\8ktn726kf6-{0}-v9284bngwp-v9284bngwp.gz
-C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\compressed\audfgdaszd-{0}-npzgftkyqd-npzgftkyqd.gz
-C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\compressed\957cwopmra-{0}-epfdjvfstw-epfdjvfstw.gz
 C:\Users\itayf\OneDrive\מסמכים\kk\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
 C:\Users\itayf\OneDrive\מסמכים\kk\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
 C:\Users\itayf\OneDrive\מסמכים\kk\bin\Debug\net10.0\Microsoft.Data.SqlClient.Extensions.Abstractions.dll
@@ -131,6 +128,7 @@ C:\Users\itayf\OneDrive\מסמכים\kk\bin\Debug\net10.0\runtimes\win-x64\nativ
 C:\Users\itayf\OneDrive\מסמכים\kk\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\kk.csproj.AssemblyReference.cache
 C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\kk.csproj.Up2Date
-C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\compressed\9xu8q5c2a5-{0}-jvzqw3rd3m-jvzqw3rd3m.gz
-C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\compressed\bnt2mimfl9-{0}-72h0moz1we-72h0moz1we.gz
-C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\compressed\yds6b3vknb-{0}-mdnsbb17im-mdnsbb17im.gz
+C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\kk.sourcelink.json
+C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\compressed\kgi0p82knn-{0}-7vv7ugkhvj-7vv7ugkhvj.gz
+C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\compressed\ccumolnhsl-{0}-dmrbrw3el7-dmrbrw3el7.gz
+C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\compressed\wm3f7szgz3-{0}-bpkkaj9m8b-bpkkaj9m8b.gz

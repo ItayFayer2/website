@@ -5,47 +5,57 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burger Salon</title>
-    <link rel="stylesheet" href="~/css/Home.css">
+    <link rel="stylesheet" href="~/css/Site.css">
 </head>
 
+<body class="HomePage">
 
-<body class = "HomePage">
-
-<div class="background">
+<div class="Hero">
     <video autoplay muted loop playsinline>
         <source src="~/videos/background.mp4" type="video/mp4">
     </video>
-    <h1>
-        בורגר סאלון
-    </h1>
-    <h3>רשת ההמבורגרים הכי טובה בגלקסיה</h3>
-    <button class="AAA">הזמן שולחן</button>
+    <div class="Hero-Overlay">
+        <h1 class="Glitch-Text">BURGER SALON</h1>
+        <h3>ההמבורגר הכי טוב בגלקסיה</h3>
+        <button class="Main-Btn">הזמן שולחן</button>
+    </div>
 </div>
 
 
-<section class="Informetion">
-    <section class="Upper">
-        <img class="aa" src="~/images/fries.jpg" alt="aaa">
-        <h1>
-            בשר טרי שמגיע מהמרכז תעשייה של דימונה ברמה גבוהה ציפס מתפוח אדמה טרי שצומח לי בגינה האחרוית וירקות טריים מהשופרסל
+<section class="Content-Section">
+    <div class="Info-Row">
+        <img class="Feature-Img" src="~/images/twoa.jpg">
 
-        </h1>
-    </section>
-    <div class="line">
+        <div class="Text-Content">
+            <h2>התפריט שלנו</h2>
+            <p>
+                כאן תוכלו למצוא מגוון המבורגרים, צ'יפס ותוספות.
+                אנחנו משתמשים במוצרים טריים ומנסים לתת חוויה טעימה ופשוטה לכל אחד.
+            </p>
+
+            <button class="Main-Btn">לצפייה בתפריט</button>
+        </div>
     </div>
-    <section class="Upper2">
-        <h1>
-            אחלה של מקום נקי שירות טוב  מלא סוגי מנות שמתאימים לכל אחד עובדים טובים ונחמדים קינוחים מעולים ואווירה טובה
-        </h1>
-        <img class="aa" src="~/images/fries.jpg" alt="aaa">
+    <div class="Info-Row Reverse">
+        <img class="Feature-Img" src="~/images/onea.jpg">
 
-    </section>
+        <div class="Text-Content">
+            <h2>יצירת קשר</h2>
+            <p>
+                אם יש לכם שאלות או שאתם רוצים להזמין מקום,
+                אפשר ליצור איתנו קשר ונשמח לעזור.
+            </p>
+
+            <button class="Main-Btn Alt">צור קשר</button>
+        </div>
+    </div>
+
 </section>
-</body>
 
+
+</body>
 </html>

@@ -1,15 +1,15 @@
 ﻿<<!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burger Salon</title>
-    <link rel="stylesheet" href="~/css/Home.css" />
+    <link rel="stylesheet" href="~/css/Header.css" />
 </head>
-<body class="HomePage">
+<body class="header">
 
 <header>
-    <img src="~/images/icon.png" alt="Burger Salon Logo">
+    <img src="~/images/icon.png" alt="Logo">
 
     <nav>
         <ul class="nav-links">
@@ -17,19 +17,51 @@
             <li><a asp-page="/About">אודות</a></li>
             <li><a asp-page="/Menu">תפריט</a></li>
             <li><a asp-page="/Contact">דברו איתנו</a></li>
-            <li><a asp-page="/Book">הזמן שולחן</a></li>
+            <li><a asp-page="/Book">הזמנת שולחן</a></li>
+            @if (Context.Session.GetString("role") == "Admin")
+                {
+                    <li><a asp-page="/Admin">ADMIN</a></li>
+                }
         </ul>
     </nav>
 
-<div class="auth-buttons">
-    <a asp-page="/Login" class="auth-btn login-btn">התחברות</a>
-    <a asp-page="/Signup" class="auth-btn signup-btn">הרשמה</a>
+   <div class="auth-buttons">
+
+    @if (Context.Session.GetString("username") != null)
+    {
+        <span class="welcome-text">
+            ברוך הבא, @Context.Session.GetString("username")
+        </span>
+
+        <a asp-page="/Logout" class="auth-btn login-btn">התנתקות</a>
+    }
+    else
+    {
+        <a asp-page="/Login" class="auth-btn login-btn">התחברות</a>
+        <a asp-page="/Signup" class="auth-btn signup-btn">הרשמה</a>
+    }
+
 </div>
 </header>
 
 <div>
     @RenderBody()
 </div>
+
+
+<footer class="Dark-Footer">
+    <div class="Footer-Grid">
+        <div class="Footer-Col">
+            <h3>BURGER SALON</h3>
+            <p>חווית בשרים פרימיום</p>
+        </div>
+        <div class="Footer-Col">
+            <p><b>כתובת:</b> דימונה סיטי</p>
+            <p><b>טלפון:</b> *5543</p>
+        </div>
+    </div>
+</footer>
+
 
 </body>
 </html>

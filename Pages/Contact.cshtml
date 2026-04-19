@@ -4,31 +4,37 @@
     ViewData["Title"] = "Burger Salon";
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>דברו איתנו</title>
-    <link rel="stylesheet" href="~/css/Contact.css">
+    <link rel="stylesheet" href="~/css/Site.css">
 </head>
-<body class="HomePage">
 
-<section class="contact-section">
-    <h1>דברו איתנו</h1>
-    <p>יש לך שאלות? שלח לנו הודעה ונענה לך!</p>
+<body>
 
-    <form class="contact-form" action="#" method="post">
-        <label for="name">שם מלא</label>
-        <input type="text" id="name" name="name" placeholder="שמך" required>
+<section class="Contact-Section">
 
-        <label for="email">אימייל</label>
-        <input type="email" id="email" name="email" placeholder="האימייל שלך" required>
+    <div class="Contact-Box">
 
-        <label for="message">הודעה</label>
-        <textarea id="message" name="message" rows="6" placeholder="ההודעה שלך" required></textarea>
+        <h1>דברו איתנו</h1>
+        <p>יש לך שאלות? שלח לנו הודעה ונחזור אליך בהקדם.</p>
 
-        <button type="submit" class="AAA">שלח לנו</button>
-    </form>
+        <form class="Contact-Form">
+
+            <input type="text" name="name" placeholder="שם מלא" required>
+
+            <input type="email" name="email" placeholder="אימייל" required>
+
+            <textarea name="message" rows="6" placeholder="הודעה שלך..." required></textarea>
+
+            <button type="submit">שלח הודעה</button>
+
+        </form>
+
+    </div>
+
 </section>
 
 </body>

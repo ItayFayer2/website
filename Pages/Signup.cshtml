@@ -1,0 +1,42 @@
+@page
+@model RestaurantProject.Pages.SignupModel
+@{
+    ViewData["Title"] = "Signup";
+}
+
+<link rel="stylesheet" href="~/css/Site.css" />
+
+<div class="signup-page">
+    <div class="signup-container">
+
+        <h1>הרשמה</h1>
+
+        <form method="post" onsubmit="return validateForm()">
+
+            <label>Full Name</label>
+            <input type="text" name="fullName" />
+
+            <label>Username</label>
+            <input type="text" name="username" />
+
+            <label>Password</label>
+            <input type="password" name="password" />
+
+            <label>Confirm Password</label>
+            <input type="password" name="confirmPassword" />
+
+            <label>Email</label>
+            <input type="text" name="email" />
+
+            <label>Phone</label>
+            <input type="text" name="phone" />
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p class="message">@Model.Message</p>
+
+    </div>
+</div>
+
+<script src="~/js/signup.js"></script>

@@ -1,46 +1,61 @@
 @page
 @model AboutModel
 @{
-    ViewData["Title"] = "Burger Salon";
+    ViewData["Title"] = "About Us";
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="~/css/About.css">
+    <link rel="stylesheet" href="~/css/Site.css">
 
 </head>
 
 <body>
-<div class="background">
+    
+
+<div class="Hero">
     <video autoplay muted loop playsinline>
         <source src="~/videos/background.mp4" type="video/mp4">
     </video>
-    <h1>
-        מי אנחנו?
-    </h1>
-    <p class="Para">
-        המסעדה הכי טובה בעולם, עם המבורגרים הכי טעימים בעולם, עם שירות הכי טוב בעולם, עם אווירה הכי טובה בעולם, עם אנשים הכי טובים בעולם, עם הכל הכי טוב בעולם
-
-    </p>
+    <div class="Hero-Overlay">
+        <h1 class="Glitch-Text">ABOUT US</h1>
+        <h3>אנחנו מסעדת ההמבורגרים הראשונה שנפתחה בדקה הזאתי בשנת 2070 עם המבורגרים מצוינים</h3>
+    </div>
 </div>
+<section class="About-Section">
 
+    <div class="About-Card">
+        <h2>מי אנחנו</h2>
+        <p>
+            אנחנו Burger Salon וזה בעצם מקום של המבורגרים שפתחנו כי אנחנו ממש אוהבים בשר. 
+            המקום התחיל מזה שחיפשנו מקום טוב לאכול בו ולא מצאנו משהו פשוט וטעים אז החלטנו לפתוח בעצמם. 
+            בקיצור, אנחנו חברה צעירים שאוהבים להכין אוכל לאנשים.
+        </p>
+    </div>
 
-<table class="Gallery">
-    <tr>
-        <th><img src="~/images/fries.jpg" alt="fries"></th>
-        <th><img src="~/images/fries.jpg" alt="fries"></th>
-        <th><img src="~/images/fries.jpg" alt="fries"></th>
-        <th><img src="~/images/fries.jpg" alt="fries"></th>
-        <th><img src="~/images/fries.jpg" alt="fries"></th>
-        <th><img src="~/images/fries.jpg" alt="fries"></th>
-        <th><img src="~/images/fries.jpg" alt="fries"></th>
+    <div class="About-Card">
+        <h2>מה אנחנו מציעים</h2>
+        <p>
+            אצלנו יש מלא דברים טעימים כמו המבורגרים בלחמנייה, צ'יפס קריספי כזה, שתייה קרה וכל מה שצריך. 
+            אנחנו מביאים את הבשר כל בוקר והכל טרי וטעים. 
+            אין פה משחקים, פשוט באים, מזמינים ואוכלים המבורגר ברמה גבוהה וזהו.
+        </p>
+    </div>
 
-    </tr>
-</table>
+    <div class="About-Card">
+        <h2>המטרה שלנו</h2>
+        <p>
+            המטרה שלנו היא שפשוט יהיה לכם טעים. 
+            אנחנו רוצים שכל מי שנכנס יצא שבע ומבסוט מהחיים. 
+            אנחנו משקיעים בשרות וחשוב לנו שתהיה פה אווירה כיפית עם מוזיקה טובה ואוכל שכיף לאכול עם חברים או משפחה.
+        </p>
+    </div>
+
+</section>
 </body>
 
 
