@@ -4,18 +4,16 @@ using Microsoft.Data.SqlClient;
 
 public class AdminModel : PageModel
 {
-    private readonly IConfiguration _configuration;
-
-    public List<User> Users = new List<User>();
-    public List<Booking> Bookings = new List<Booking>();
+    public List<User> Users = new();
+    public List<Booking> Bookings = new();
 
     [BindProperty(SupportsGet = true)]
     public string Search { get; set; }
 
-    public AdminModel(IConfiguration configuration)
-    {
-        _configuration = configuration;
-    }
+    string connectionString = @"Server=ITAY_FAYER\SQLEXPRESS;
+Database=FinalPCProject;
+Trusted_Connection=True;
+TrustServerCertificate=True;";
 
     public class User
     {
@@ -41,17 +39,12 @@ public class AdminModel : PageModel
         if (username == null)
             return RedirectToPage("/Login");
 
-string connectionString = @"Server=ITAY_FAYER\SQLEXPRESS;
-Database=FinalPCProject;
-Trusted_Connection=True;
-TrustServerCertificate=True;";
-
-        using SqlConnection conn = new SqlConnection(connectionString);
+        using SqlConnection conn = new(connectionString);
         conn.Open();
 
-        // 🔒 check admin
-        string roleQuery = "SELECT Role FROM Users WHERE username = @username";
-        using SqlCommand roleCmd = new SqlCommand(roleQuery, conn);
+        SqlCommand roleCmd = new(
+            "SELECT Role FROM Users WHERE Username=@username", conn);
+
         roleCmd.Parameters.AddWithValue("@username", username);
 
         string role = roleCmd.ExecuteScalar()?.ToString();
@@ -59,22 +52,18 @@ TrustServerCertificate=True;";
         if (role != "Admin")
             return RedirectToPage("/Index");
 
-        // ---------------- USERS ----------------
-        string query = "SELECT Username, FullName, Email, Phone, Role FROM Users";
+        // Get users
+        string query = "SELECT * FROM Users";
 
         if (!string.IsNullOrEmpty(Search))
-        {
             query += " WHERE Username LIKE @search OR FullName LIKE @search";
-        }
 
-        using SqlCommand cmd = new SqlCommand(query, conn);
+        SqlCommand cmd = new(query, conn);
 
         if (!string.IsNullOrEmpty(Search))
-        {
             cmd.Parameters.AddWithValue("@search", "%" + Search + "%");
-        }
 
-        using SqlDataReader reader = cmd.ExecuteReader();
+        SqlDataReader reader = cmd.ExecuteReader();
 
         while (reader.Read())
         {
@@ -88,13 +77,12 @@ TrustServerCertificate=True;";
             });
         }
 
-        reader.Close(); // IMPORTANT before next query
+        reader.Close();
 
-        // ---------------- BOOKINGS ----------------
-        string bookingQuery = "SELECT * FROM Bookings";
+        SqlCommand bookingCmd = new(
+            "SELECT * FROM Bookings", conn);
 
-        using SqlCommand bookingCmd = new SqlCommand(bookingQuery, conn);
-        using SqlDataReader bookingReader = bookingCmd.ExecuteReader();
+        SqlDataReader bookingReader = bookingCmd.ExecuteReader();
 
         while (bookingReader.Read())
         {
@@ -110,47 +98,35 @@ TrustServerCertificate=True;";
         return Page();
     }
 
-    // ❌ DELETE USER
-    public IActionResult OnPostDelete()
+    public IActionResult DeleteUsers()
     {
         string username = Request.Form["username"];
 
-string connectionString = @"Server=ITAY_FAYER\SQLEXPRESS;
-Database=FinalPCProject;
-Trusted_Connection=True;
-TrustServerCertificate=True;";
-
-        using SqlConnection conn = new SqlConnection(connectionString);
+        using SqlConnection conn = new(connectionString);
         conn.Open();
 
-        string query = "DELETE FROM Users WHERE Username = @username";
+        SqlCommand cmd = new(
+            "DELETE FROM Users WHERE Username=@username", conn);
 
-        using SqlCommand cmd = new SqlCommand(query, conn);
         cmd.Parameters.AddWithValue("@username", username);
-
         cmd.ExecuteNonQuery();
 
         return RedirectToPage();
     }
-    public IActionResult OnPostDeleteBooking()
-{
-    string id = Request.Form["id"];
 
-    string connectionString = @"Server=ITAY_FAYER\SQLEXPRESS;
-Database=FinalPCProject;
-Trusted_Connection=True;
-TrustServerCertificate=True;";
+    public IActionResult DeleteBooking()
+    {
+        string id = Request.Form["id"];
 
-    using SqlConnection conn = new SqlConnection(connectionString);
-    conn.Open();
+        using SqlConnection conn = new(connectionString);
+        conn.Open();
 
-    string query = "DELETE FROM Bookings WHERE Id = @id";
+        SqlCommand cmd = new(
+            "DELETE FROM Bookings WHERE Id=@id", conn);
 
-    using SqlCommand cmd = new SqlCommand(query, conn);
-    cmd.Parameters.AddWithValue("@id", id);
+        cmd.Parameters.AddWithValue("@id", id);
+        cmd.ExecuteNonQuery();
 
-    cmd.ExecuteNonQuery();
-
-    return RedirectToPage();
-}
+        return RedirectToPage();
+    }
 }

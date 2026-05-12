@@ -13,8 +13,7 @@ public class BookModel : PageModel
     string time = Request.Form["Time"];
     string people = Request.Form["People"];
 
-    string bookingDate = date + " " + time; // combine safely
-
+    string bookingDate = date + " " + time; 
     string connectionString = @"Server=ITAY_FAYER\SQLEXPRESS;
 Database=FinalPCProject;
 Trusted_Connection=True;

@@ -53,9 +53,72 @@
             <button class="Main-Btn Alt">צור קשר</button>
         </div>
     </div>
+    
+<div id="chat-container">
+    <div id="chat-header">צאט בוט <button onclick="openchat()">^</button></div>
+
+    <div id="chat-window">
+        <div class="message bot">ברוך הבא איך אפשר לעזור? </div>
+    </div>
+
+    <div id="chat-input-area">
+        <input type="text" id="user-input" placeholder="הודעה">
+        <button onclick="sendMessage()">שלח</button>
+    </div>
+</div>
 
 </section>
 
 
 </body>
 </html>
+
+<script>
+function sendMessage() {
+    var input = document.getElementById("user-input");
+    var text = input.value;
+    var chat = document.getElementById("chat-window");
+
+    var userMsg = document.createElement("div");
+    userMsg.className = "message user";
+    userMsg.innerText = text;
+    chat.appendChild(userMsg);
+
+    var botMsg = document.createElement("div");
+    botMsg.className = "message bot";
+
+    if (text.toLowerCase() === "איך אפשר להזמין") {
+        botMsg.innerText = "בעמוד הזמנת שולחן תוכל לבצע הזמנה בקלות";
+    } else if (text.toLowerCase() === "יש חניה") {
+        botMsg.innerText = "כן יש חניה קרובה למסעדה";
+    } else if (text.toLowerCase() === "מתי אתם פתוחים") {
+        botMsg.innerText = "שעות הפתיחה נמצאות בעמוד הראשי באתר";
+    } else if (text.toLowerCase() === "אפשר להזמין שולחן") {
+        botMsg.innerText = "כן אפשר להזמין דרך עמוד ההזמנות";
+    } else if (text.toLowerCase() === "איפה אתם נמצאים") {
+        botMsg.innerText = "הכתובת שלנו נמצאת בעמוד צור קשר";
+    } else if (text.toLowerCase() === "יש תפריט") {
+        botMsg.innerText = "כן אפשר לראות את כל התפריט באתר";
+    } else if (text.toLowerCase() === "מי בנה את האתר") {
+        botMsg.innerText = "האתר נבנה על ידי טיטוף ודורון";
+    } else if (text.toLowerCase() === "מה מומלץ") {
+        botMsg.innerText = "קשה לבחור כי הכל ממש טעים";
+    } else if (text.toLowerCase() === "יש ווי פיי") {
+        botMsg.innerText = "כן יש ווי פיי חופשי במקום";
+    } else {
+        botMsg.innerText = "סליחה אני לא מבין את השאלה";
+    }
+
+    chat.appendChild(botMsg);
+
+    input.value = "";
+}
+function openchat(){
+    var frame = document.getElementById("chat-container")
+    if (frame.style.bottom === "0px") {
+        frame.style.bottom = "-360px"
+    } else {
+    frame.style.bottom = "0px"
+    }
+}
+</script/>

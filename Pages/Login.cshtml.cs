@@ -12,11 +12,9 @@ public class LoginModel : PageModel
 
     public void OnPost()
     {
-        // Get form data
         username = Request.Form["username"];
         password = Request.Form["password"];
 
-        // Connection string
         string connectionString = @"Server=ITAY_FAYER\SQLEXPRESS;
 Database=FinalPCProject;
 Trusted_Connection=True;
@@ -25,7 +23,6 @@ TrustServerCertificate=True;";
         using SqlConnection conn = new SqlConnection(connectionString);
         conn.Open();
 
-        // Get BOTH username + role
         string query = "SELECT username, Role FROM Users WHERE username = @username AND password = @password";
 
         using SqlCommand cmd = new SqlCommand(query, conn);
@@ -39,7 +36,6 @@ TrustServerCertificate=True;";
             string user = reader["username"].ToString();
             string role = reader["Role"]?.ToString() ?? "User";
 
-            // Save in session
             HttpContext.Session.SetString("username", user);
             HttpContext.Session.SetString("role", role);
 
