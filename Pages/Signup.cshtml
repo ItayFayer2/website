@@ -31,10 +31,22 @@
             <label>מספר טלפון</label>
             <input type="text" name="phone" />
 
+            <!-- שדות חדשים -->
+            <label>מין</label>
+            <select name="gender">
+                <option value="">בחר מין</option>
+                <option value="Male">זכר</option>
+                <option value="Female">נקבה</option>
+                <option value="Other">אחר</option>
+            </select>
+
+            <label>תאריך לידה</label>
+            <input type="date" name="birthDate" />
+
             <button type="submit">הרשמה</button>
         </form>
 
-        <p class="message">@Model.Message</p>
+        <p class="form-message">@Model.Message</p>
 
     </div>
 </div>

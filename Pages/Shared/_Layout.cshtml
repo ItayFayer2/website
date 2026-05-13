@@ -1,4 +1,4 @@
-﻿<<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -18,10 +18,16 @@
             <li><a asp-page="/Menu">תפריט</a></li>
             <li><a asp-page="/Contact">דברו איתנו</a></li>
             <li><a asp-page="/Book">הזמנת שולחן</a></li>
+
+            @if (Context.Session.GetString("username") != null)
+            {
+                <li><a asp-page="/Profile">אזור אישי</a></li>
+            }
+
             @if (Context.Session.GetString("role") == "Admin")
-                {
-                    <li><a asp-page="/Admin">ADMIN</a></li>
-                }
+            {
+                <li><a asp-page="/Admin">ADMIN</a></li>
+            }
         </ul>
     </nav>
 
@@ -61,7 +67,6 @@
         </div>
     </div>
 </footer>
-
 
 </body>
 </html>

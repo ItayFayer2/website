@@ -130,5 +130,5 @@ C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\kk.csproj.AssemblyRefe
 C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\kk.csproj.Up2Date
 C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\kk.sourcelink.json
 C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\compressed\kgi0p82knn-{0}-7vv7ugkhvj-7vv7ugkhvj.gz
-C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\compressed\ccumolnhsl-{0}-4sphalpso4-4sphalpso4.gz
-C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\compressed\wm3f7szgz3-{0}-nlmc75zzxe-nlmc75zzxe.gz
+C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\compressed\ccumolnhsl-{0}-uoamc6vmb3-uoamc6vmb3.gz
+C:\Users\itayf\OneDrive\מסמכים\kk\obj\Debug\net10.0\compressed\wm3f7szgz3-{0}-epyzlwum4z-epyzlwum4z.gz

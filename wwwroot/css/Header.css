@@ -30,7 +30,9 @@ header img {
     border-radius: 50px;
     position:relative;
     left: 50%;
+    list-style: none;
     transform: translateX(-50%);
+    color:white;
 }
 
 .nav-links li a {
@@ -50,6 +52,10 @@ header img {
     display: flex;
     gap: 15px;
     margin-right: 0; 
+}
+
+.welcome-text{
+    color: white;
 }
 
 .auth-buttons .login-btn, 

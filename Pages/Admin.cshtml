@@ -6,13 +6,12 @@
 <div class="admin-page">
 
     <h1>ADMIN</h1>
-        <h1>משתמשים רשומים:</h1>
+    <h1>משתמשים רשומים:</h1>
 
     <form method="get" class="search-box">
         <input type="text" name="Search" placeholder="חפש משתמש..." value="@Model.Search" />
     </form>
 
-    
     <table class="admin-table">
         <thead>
             <tr>
@@ -35,44 +34,76 @@
                     <td>@user.Phone</td>
                     <td>@user.Role</td>
                     <td>
-<form method="post" asp-page-handler="Delete">
-    <input type="hidden" name="username" value="@user.Username" />
-    <button type="submit" class="delete-btn">מחק</button>
-</form>     
-       </td>
+                        <form method="post" asp-page-handler="Delete">
+                            <input type="hidden" name="username" value="@user.Username" />
+                            <button type="submit" class="delete-btn">מחק</button>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
 
-<h1>הזמנות רשומות:</h1>
+    <h1>הזמנות שולחן רשומות:</h1>
 
-<table class="admin-table">
-    <thead>
-        <tr>
-            <th>שם</th>
-            <th>תאריך</th>
-            <th>כמות אנשים</th>
-            <th>פעולות</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach (var b in Model.Bookings)
-        {
+    <table class="admin-table">
+        <thead>
             <tr>
-                <td>@b.Name</td>
-                <td>@b.BookingDate</td>
-                <td>@b.People</td>
-                <td>
-                    <form method="post" asp-page-handler="DeleteBooking">
-                        <input type="hidden" name="id" value="@b.Id" />
-                        <button type="submit" class="delete-btn">מחק</button>
-                    </form>
-                </td>
+                <th>שם</th>
+                <th>תאריך</th>
+                <th>כמות אנשים</th>
+                <th>פעולות</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+
+        <tbody>
+            @foreach (var b in Model.Bookings)
+            {
+                <tr>
+                    <td>@b.Name</td>
+                    <td>@b.BookingDate</td>
+                    <td>@b.People</td>
+                    <td>
+                        <form method="post" asp-page-handler="DeleteBooking">
+                            <input type="hidden" name="id" value="@b.Id" />
+                            <button type="submit" class="delete-btn">מחק</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+    <h1>הזמנות:</h1>
+
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>מספר טלפון</th>
+                <th>כתובת</th>
+                <th>פירוט מנות</th>
+                <th>פעולות</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var order in Model.MenuOrders)
+            {
+                <tr>
+                    <td>@order.Phone</td>
+                    <td>@order.Address</td>
+                    <td>@order.Items</td>
+                    <td>
+                        <form method="post" asp-page-handler="DeleteMenuOrder">
+                            <input type="hidden" name="id" value="@order.Id" />
+                            <button type="submit" class="delete-btn">מחק הזמנה</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
 </div>

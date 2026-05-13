@@ -14,111 +14,146 @@
 
 <body class="HomePage">
 
-<div class="Hero">
-    <video autoplay muted loop playsinline>
-        <source src="~/videos/background.mp4" type="video/mp4">
-    </video>
-    <div class="Hero-Overlay">
-        <h1 class="Glitch-Text">BURGER SALON</h1>
-        <h3>ההמבורגר הכי טוב בגלקסיה</h3>
-        <button class="Main-Btn">הזמן שולחן</button>
-    </div>
-</div>
+    <div class="Hero">
+        <video autoplay muted loop playsinline>
+            <source src="~/videos/background.mp4" type="video/mp4">
+        </video>
 
-
-<section class="Content-Section">
-    <div class="Info-Row">
-        <img class="Feature-Img" src="~/images/twoa.jpg">
-
-        <div class="Text-Content">
-            <h2>התפריט שלנו</h2>
-            <p>
-                כאן תוכלו למצוא מגוון המבורגרים, צ'יפס ותוספות.
-                אנחנו משתמשים במוצרים טריים ומנסים לתת חוויה טעימה ופשוטה לכל אחד.
-            </p>
-
-            <button class="Main-Btn">לצפייה בתפריט</button>
+        <div class="Hero-Overlay">
+            <h1 class="Glitch-Text">BURGER SALON</h1>
+            <h3>ההמבורגר הכי טוב בגלקסיה</h3>
+                <button class="Main-Btn" onclick="window.location.href='/Book'">
+                הזמן שולחן
+                </button>
         </div>
     </div>
-    <div class="Info-Row Reverse">
-        <img class="Feature-Img" src="~/images/onea.jpg">
 
-        <div class="Text-Content">
-            <h2>יצירת קשר</h2>
-            <p>
-                אם יש לכם שאלות או שאתם רוצים להזמין מקום,
-                אפשר ליצור איתנו קשר ונשמח לעזור.
-            </p>
+    <section class="Content-Section">
 
-            <button class="Main-Btn Alt">צור קשר</button>
+        <div class="Info-Row">
+            <img class="Feature-Img" src="~/images/twoa.jpg">
+
+            <div class="Text-Content">
+                <h2>התפריט שלנו</h2>
+                <p>
+                    כאן תוכלו למצוא מגוון המבורגרים, צ'יפס ותוספות.
+                    אנחנו משתמשים במוצרים טריים ומנסים לתת חוויה טעימה ופשוטה לכל אחד.
+                </p>
+
+                <button class="Main-Btn" onclick="window.location.href='/Menu'">
+                צפייה בתפריט
+                </button>
+
+            </div>
         </div>
+
+        <div class="Info-Row Reverse">
+            <img class="Feature-Img" src="~/images/onea.jpg">
+
+            <div class="Text-Content">
+                <h2>יצירת קשר</h2>
+                <p>
+                    אם יש לכם שאלות או שאתם רוצים להזמין מקום,
+                    אפשר ליצור איתנו קשר ונשמח לעזור.
+                </p>
+
+                <button class="Main-Btn Alt" onclick="window.location.href='/Contact'">
+                    צור קשר
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- CHAT -->
+    <div id="chat-container">
+
+        <div id="chat-header">
+            צאט בוט
+            <button onclick="openchat()">^</button>
+        </div>
+
+        <div id="chat-window">
+            <div class="message bot">
+                ברוך הבא איך אפשר לעזור?
+            </div>
+        </div>
+
+        <div id="chat-input-area">
+            <input type="text" id="user-input" placeholder="הודעה">
+            <button onclick="sendMessage()">שלח</button>
+        </div>
+
     </div>
-    
-<div id="chat-container">
-    <div id="chat-header">צאט בוט <button onclick="openchat()">^</button></div>
 
-    <div id="chat-window">
-        <div class="message bot">ברוך הבא איך אפשר לעזור? </div>
-    </div>
+    <script>
+        function sendMessage() {
+            var input = document.getElementById("user-input");
+            var text = input.value.trim();
 
-    <div id="chat-input-area">
-        <input type="text" id="user-input" placeholder="הודעה">
-        <button onclick="sendMessage()">שלח</button>
-    </div>
-</div>
+            if (text === "") return;
 
-</section>
+            var chat = document.getElementById("chat-window");
 
+            var userMsg = document.createElement("div");
+            userMsg.className = "message user";
+            userMsg.innerText = text;
+            chat.appendChild(userMsg);
+
+            var botMsg = document.createElement("div");
+            botMsg.className = "message bot";
+
+            if (text.toLowerCase() === "איך אפשר להזמין") {
+                botMsg.innerText = "בעמוד הזמנת שולחן תוכל לבצע הזמנה בקלות";
+            }
+            else if (text.toLowerCase() === "יש חניה") {
+                botMsg.innerText = "כן יש חניה קרובה למסעדה";
+            }
+            else if (text.toLowerCase() === "מתי אתם פתוחים") {
+                botMsg.innerText = "שעות הפתיחה נמצאות בעמוד הראשי באתר";
+            }
+            else if (text.toLowerCase() === "אפשר להזמין שולחן") {
+                botMsg.innerText = "כן אפשר להזמין דרך עמוד ההזמנות";
+            }
+            else if (text.toLowerCase() === "איפה אתם נמצאים") {
+                botMsg.innerText = "הכתובת שלנו נמצאת בעמוד צור קשר";
+            }
+            else if (text.toLowerCase() === "יש תפריט") {
+                botMsg.innerText = "כן אפשר לראות את כל התפריט באתר";
+            }
+            else if (text.toLowerCase() === "מי בנה את האתר") {
+                botMsg.innerText = "האתר נבנה על ידי טיטוף ודורון";
+            }
+            else if (text.toLowerCase() === "מה מומלץ") {
+                botMsg.innerText = "קשה לבחור כי הכל ממש טעים";
+            }
+            else if (text.toLowerCase() === "יש ווי פיי") {
+                botMsg.innerText = "כן יש ווי פיי חופשי במקום";
+            }
+            else {
+                botMsg.innerText = "סליחה אני לא מבין את השאלה";
+            }
+
+            chat.appendChild(botMsg);
+
+            chat.scrollTop = chat.scrollHeight;
+            input.value = "";
+        }
+
+        var isOpen = false;
+
+        function openchat() {
+            var frame = document.getElementById("chat-container");
+
+            if (isOpen) {
+                frame.style.bottom = "-360px";
+                isOpen = false;
+            } else {
+                frame.style.bottom = "20px";
+                isOpen = true;
+            }
+        }
+    </script>
 
 </body>
 </html>
-
-<script>
-function sendMessage() {
-    var input = document.getElementById("user-input");
-    var text = input.value;
-    var chat = document.getElementById("chat-window");
-
-    var userMsg = document.createElement("div");
-    userMsg.className = "message user";
-    userMsg.innerText = text;
-    chat.appendChild(userMsg);
-
-    var botMsg = document.createElement("div");
-    botMsg.className = "message bot";
-
-    if (text.toLowerCase() === "איך אפשר להזמין") {
-        botMsg.innerText = "בעמוד הזמנת שולחן תוכל לבצע הזמנה בקלות";
-    } else if (text.toLowerCase() === "יש חניה") {
-        botMsg.innerText = "כן יש חניה קרובה למסעדה";
-    } else if (text.toLowerCase() === "מתי אתם פתוחים") {
-        botMsg.innerText = "שעות הפתיחה נמצאות בעמוד הראשי באתר";
-    } else if (text.toLowerCase() === "אפשר להזמין שולחן") {
-        botMsg.innerText = "כן אפשר להזמין דרך עמוד ההזמנות";
-    } else if (text.toLowerCase() === "איפה אתם נמצאים") {
-        botMsg.innerText = "הכתובת שלנו נמצאת בעמוד צור קשר";
-    } else if (text.toLowerCase() === "יש תפריט") {
-        botMsg.innerText = "כן אפשר לראות את כל התפריט באתר";
-    } else if (text.toLowerCase() === "מי בנה את האתר") {
-        botMsg.innerText = "האתר נבנה על ידי טיטוף ודורון";
-    } else if (text.toLowerCase() === "מה מומלץ") {
-        botMsg.innerText = "קשה לבחור כי הכל ממש טעים";
-    } else if (text.toLowerCase() === "יש ווי פיי") {
-        botMsg.innerText = "כן יש ווי פיי חופשי במקום";
-    } else {
-        botMsg.innerText = "סליחה אני לא מבין את השאלה";
-    }
-
-    chat.appendChild(botMsg);
-
-    input.value = "";
-}
-function openchat(){
-    var frame = document.getElementById("chat-container")
-    if (frame.style.bottom === "0px") {
-        frame.style.bottom = "-360px"
-    } else {
-    frame.style.bottom = "0px"
-    }
-}
-</script/>

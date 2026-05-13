@@ -1,0 +1,40 @@
+@page
+@model finalProject.Pages.ProfileModel
+@{
+    ViewData["Title"] = "עריכת פרופיל";
+}
+
+<link rel="stylesheet" href="~/css/Site.css" />
+
+
+<div class="signup-page">
+    <div class="signup-container">
+        <h1>הפרטים שלי</h1>
+        
+        <form method="post">
+            <label>שם מלא</label>
+            <input type="text" asp-for="FullName" />
+
+            <label>אימייל</label>
+            <input type="text" asp-for="Email" />
+
+            <label>מספר טלפון</label>
+            <input type="text" asp-for="Phone" />
+
+            <label>סיסמה חדשה/קיימת</label>
+            <input type="text" asp-for="Password" />
+
+            <label>מין</label>
+            <select asp-for="Gender" class="signup-select">
+                <option value="Male">זכר</option>
+                <option value="Female">נקבה</option>
+                <option value="Other">אחר</option>
+            </select>
+
+            <label>תאריך לידה</label>
+            <input type="date" asp-for="BirthDate" class="signup-date" />
+
+            <button type="submit">שמור שינויים</button>
+        </form>
+    </div>
+</div>

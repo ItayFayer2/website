@@ -6,6 +6,7 @@ public class AdminModel : PageModel
 {
     public List<User> Users = new();
     public List<Booking> Bookings = new();
+    public List<OrderEntry> MenuOrders = new(); 
 
     [BindProperty(SupportsGet = true)]
     public string Search { get; set; }
@@ -30,6 +31,14 @@ TrustServerCertificate=True;";
         public string Name { get; set; }
         public string BookingDate { get; set; }
         public int People { get; set; }
+    }
+
+    public class OrderEntry 
+    {
+        public int Id { get; set; } 
+        public string Phone { get; set; }
+        public string Address { get; set; }
+        public string Items { get; set; }
     }
 
     public IActionResult OnGet()
@@ -94,11 +103,27 @@ TrustServerCertificate=True;";
                 People = (int)bookingReader["People"]
             });
         }
+        bookingReader.Close();
+
+        SqlCommand orderCmd = new("SELECT Id, Phone, Address, Items FROM Orders", conn);
+        SqlDataReader orderReader = orderCmd.ExecuteReader();
+
+        while (orderReader.Read())
+        {
+            MenuOrders.Add(new OrderEntry
+            {
+                Id = (int)orderReader["Id"],
+                Phone = orderReader["Phone"].ToString(),
+                Address = orderReader["Address"].ToString(),
+                Items = orderReader["Items"].ToString()
+            });
+        }
+        orderReader.Close();
 
         return Page();
     }
 
-    public IActionResult DeleteUsers()
+    public IActionResult OnPostDelete()
     {
         string username = Request.Form["username"];
 
@@ -114,7 +139,7 @@ TrustServerCertificate=True;";
         return RedirectToPage();
     }
 
-    public IActionResult DeleteBooking()
+    public IActionResult OnPostDeleteBooking()
     {
         string id = Request.Form["id"];
 
@@ -124,6 +149,20 @@ TrustServerCertificate=True;";
         SqlCommand cmd = new(
             "DELETE FROM Bookings WHERE Id=@id", conn);
 
+        cmd.Parameters.AddWithValue("@id", id);
+        cmd.ExecuteNonQuery();
+
+        return RedirectToPage();
+    }
+
+    public IActionResult OnPostDeleteMenuOrder()
+    {
+        string id = Request.Form["id"];
+
+        using SqlConnection conn = new(connectionString);
+        conn.Open();
+
+        SqlCommand cmd = new("DELETE FROM Orders WHERE Id=@id", conn);
         cmd.Parameters.AddWithValue("@id", id);
         cmd.ExecuteNonQuery();
 

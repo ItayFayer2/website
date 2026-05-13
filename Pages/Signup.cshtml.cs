@@ -4,13 +4,9 @@ using Microsoft.Data.SqlClient;
 
 namespace RestaurantProject.Pages
 {
-    // מחלקת צד השרת של דף ההרשמה.
-    // תפקידה: לקרוא את הנתונים מהטופס, לבדוק אם המשתמש כבר קיים,
-    // ואם לא - להוסיף אותו למסד הנתונים.
     public class SignupModel : PageModel
     {
         private readonly IConfiguration _configuration;
-
         public string Message = "";
 
         public SignupModel(IConfiguration configuration)
@@ -18,23 +14,24 @@ namespace RestaurantProject.Pages
             _configuration = configuration;
         }
 
-        public void OnGet()
-        {
-        }
+        public void OnGet() { }
 
         public void OnPost()
         {
-            // קריאת הערכים מהטופס
+            // 1. קריאת הערכים מהטופס (כולל השדות החדשים)
             string fullName = Request.Form["fullName"];
             string username = Request.Form["username"];
             string password = Request.Form["password"];
             string email = Request.Form["email"];
             string phone = Request.Form["phone"];
+            string gender = Request.Form["gender"]; // שדה חדש
+            string birthDate = Request.Form["birthDate"]; // שדה חדש
 
-string connectionString = @"Server=ITAY_FAYER\SQLEXPRESS;
+            string connectionString = @"Server=ITAY_FAYER\SQLEXPRESS;
 Database=FinalPCProject;
 Trusted_Connection=True;
 TrustServerCertificate=True;";
+
             using SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
 
@@ -51,11 +48,11 @@ TrustServerCertificate=True;";
                 return;
             }
 
-            // הוספת משתמש חדש
-            string insertQuery = @"INSERT INTO Users
-                                   (Username, Password, FullName, Email, Phone, Role)
-                                   VALUES
-                                   (@Username, @Password, @FullName, @Email, @Phone, 'User')";
+            // 2. עדכון שאילתת ההוספה - הוספנו Gender ו-BirthDate
+            string insertQuery = @"INSERT INTO Users 
+                                   (Username, Password, FullName, Email, Phone, Gender, BirthDate, Role) 
+                                   VALUES 
+                                   (@Username, @Password, @FullName, @Email, @Phone, @Gender, @BirthDate, 'User')";
 
             using SqlCommand cmd = new SqlCommand(insertQuery, conn);
             cmd.Parameters.AddWithValue("@Username", username);
@@ -63,6 +60,10 @@ TrustServerCertificate=True;";
             cmd.Parameters.AddWithValue("@FullName", fullName);
             cmd.Parameters.AddWithValue("@Email", email);
             cmd.Parameters.AddWithValue("@Phone", phone);
+            
+            // שימוש ב-DBNull אם המשתמש לא מילא את השדה (למניעת שגיאות)
+            cmd.Parameters.AddWithValue("@Gender", (object)gender ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@BirthDate", (object)birthDate ?? DBNull.Value);
 
             cmd.ExecuteNonQuery();
             Message = "Registration completed successfully.";
