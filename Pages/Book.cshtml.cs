@@ -4,33 +4,57 @@ using Microsoft.Data.SqlClient;
 
 public class BookModel : PageModel
 {
-    public string Message = "";
+    public IActionResult OnPost()
+    {
+        string name = Request.Form["Name"];
+        string date = Request.Form["Date"];
+        string time = Request.Form["Time"];
+        string people = Request.Form["People"];
 
-    public void OnPost()
-{
-    string name = Request.Form["Name"];
-    string date = Request.Form["Date"];
-    string time = Request.Form["Time"];
-    string people = Request.Form["People"];
 
-    string bookingDate = date + " " + time; 
-    string connectionString = @"Server=ITAY_FAYER\SQLEXPRESS;
+        if (string.IsNullOrEmpty(date) || string.IsNullOrEmpty(time))
+        {
+            TempData["Success"] = false;
+            return RedirectToPage();
+        }
+
+        DateTime bookingDate;
+
+        bool valid = DateTime.TryParse($"{date} {time}", out bookingDate);
+
+        // Stop bad dates for SQL
+        if (!valid || bookingDate.Year < 1753)
+        {
+            TempData["Success"] = false;
+            return RedirectToPage();
+        }
+
+        string connectionString = @"Server=ITAY_FAYER\SQLEXPRESS;
 Database=FinalPCProject;
 Trusted_Connection=True;
 TrustServerCertificate=True;";
 
-    using SqlConnection conn = new SqlConnection(connectionString);
-    conn.Open();
+        using SqlConnection conn = new SqlConnection(connectionString);
+        conn.Open();
 
-    string query = @"INSERT INTO Bookings (Name, BookingDate, People)
-                     VALUES (@Name, @Date, @People)";
+        string query = @"INSERT INTO Bookings (Name, BookingDate, People)
+                         VALUES (@Name, @Date, @People)";
 
-    using SqlCommand cmd = new SqlCommand(query, conn);
+        using SqlCommand cmd = new SqlCommand(query, conn);
 
-    cmd.Parameters.AddWithValue("@Name", name);
-    cmd.Parameters.AddWithValue("@Date", bookingDate);
-    cmd.Parameters.AddWithValue("@People", people);
+        cmd.Parameters.AddWithValue("@Name", name);
+        cmd.Parameters.AddWithValue("@Date", bookingDate);
+        cmd.Parameters.AddWithValue("@People", int.Parse(people));
 
-    cmd.ExecuteNonQuery();
-}
+        cmd.ExecuteNonQuery();
+
+
+
+        TempData["Success"] = true;
+        TempData["Date"] = bookingDate.ToString("dd/MM/yyyy");
+        TempData["Time"] = bookingDate.ToString("HH:mm");
+        TempData["People"] = people;
+
+        return RedirectToPage();
+    }
 }

@@ -51,34 +51,48 @@ public class ProfileModel : PageModel
         return Page();
     }
 
-    public void OnPost()
-    {
-        string user = HttpContext.Session.GetString("username");
-        if (string.IsNullOrEmpty(user)) return;
+    public IActionResult OnPost()
+{
+    string user = HttpContext.Session.GetString("username");
+    if (string.IsNullOrEmpty(user))
+        return RedirectToPage("/Login");
 
-        try 
+    try
+    {
+        using (SqlConnection conn = new SqlConnection(connString))
         {
-            using (SqlConnection conn = new SqlConnection(connString))
+            conn.Open();
+
+            string query = @"UPDATE Users 
+                             SET FullName = @name, 
+                                 Email = @email, 
+                                 Phone = @phone, 
+                                 Gender = @gender, 
+                                 BirthDate = @birth, 
+                                 Password = @pass 
+                             WHERE username = @user";
+
+            using (SqlCommand cmd = new SqlCommand(query, conn))
             {
-                conn.Open();
-                string query = "UPDATE Users SET FullName = @name, Email = @email, Phone = @phone, Gender = @gender, BirthDate = @birth, Password = @pass WHERE username = @user";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@name", FullName ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@email", Email ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@phone", Phone ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@gender", (object)Gender ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@birth", (object)BirthDate ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@pass", Password ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@user", user);
-                    cmd.ExecuteNonQuery();
-                }
+                cmd.Parameters.AddWithValue("@name", FullName ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@email", Email ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@phone", Phone ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@gender", (object)Gender ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@birth", (object)BirthDate ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@pass", Password ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@user", user);
+
+                cmd.ExecuteNonQuery();
             }
-            Message = "כל הפרטים עודכנו בהצלחה!";
         }
-        catch (Exception ex)
-        {
-            Message = "שגיאה בעדכון: " + ex.Message;
-        }
+
+        TempData["Updated"] = true;
     }
+    catch
+    {
+        TempData["Updated"] = false;
+    }
+
+    return RedirectToPage();
+}
 }

@@ -12,8 +12,11 @@
         <label>שם</label>
         <input type="text" name="Name" required />
 
-<input type="date" name="Date" required />
-<input type="time" name="Time" required />
+        <label>תאריך</label>
+        <input type="date" name="Date" required />
+
+        <label>שעה</label>
+        <input type="time" name="Time" required />
 
         <label>מספר אנשים</label>
         <input type="number" name="People" min="1" required />
@@ -22,6 +25,11 @@
 
     </form>
 
-    <p>@Model.Message</p>
-
 </div>
+
+@if (TempData["Success"] != null)
+{
+    <script>
+        alert("נקבע הזמנה לשולחן בשעה @TempData["Time"] בתאריך @TempData["Date"] עבור @TempData["People"] אנשים. תודה!");
+    </script>
+}

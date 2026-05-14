@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Burger Salon";
 }
+
 <!DOCTYPE html>
 <html lang="he">
 <head>
@@ -21,7 +22,7 @@
         <h1>דברו איתנו</h1>
         <p>יש לך שאלות? שלח לנו הודעה ונחזור אליך בהקדם.</p>
 
-        <form class="Contact-Form">
+        <form method="post" class="Contact-Form">
 
             <input type="text" name="name" placeholder="שם מלא" required>
 
@@ -36,6 +37,13 @@
     </div>
 
 </section>
+
+@if (Model.ShowAlert)
+{
+    <script>
+        alert('ההודעה נשלחה!');
+    </script>
+}
 
 </body>
 </html>
